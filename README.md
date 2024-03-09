@@ -5,7 +5,7 @@
 
 <p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=soycedric" alt="soycedric" /></a> </p>
 
-- 🔭 I’m currently working as **SEO Manager**
+- 🔭 I’m currently working as **SEO Analyst**
 
 - 🌱 I’m currently learning **Javascript, HTML & CSS.**
 
