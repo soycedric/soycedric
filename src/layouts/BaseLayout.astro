@@ -20,97 +20,157 @@ const { title, description } = Astro.props;
 		<MainHead title={title} description={description} />
 	</head>
 	<body>
-		<div class="stack backgrounds">
+		<div class="animated-background">
+			<div class="gradient-bg"></div>
+			<div class="floating-icons">
+				<span class="icon">⚡</span>
+				<span class="icon">🔍</span>
+				<span class="icon">💻</span>
+				<span class="icon">📊</span>
+				<span class="icon">🎯</span>
+				<span class="icon">📱</span>
+				<span class="icon">🌐</span>
+				<span class="icon">📈</span>
+				<span class="icon">💡</span>
+				<span class="icon">🚀</span>
+				<span class="icon">⭐</span>
+				<span class="icon">📱</span>
+				<span class="icon">💻</span>
+				<span class="icon">🔍</span>
+				<span class="icon">⚡</span>
+			</div>
+		</div>
+		<div class="stack content">
 			<Nav />
 			<slot />
 			<Footer />
 		</div>
 
 		<script>
-			// Add “loaded” class once the document has completely loaded.
 			addEventListener('load', () => document.documentElement.classList.add('loaded'));
 		</script>
 
 		<style>
 			:root {
-				--_placeholder-bg: linear-gradient(transparent, transparent);
-				--bg-image-main: url('/assets/backgrounds/bg-main-light-800w.jpg');
-				--bg-image-main-curves: url('/assets/backgrounds/bg-main-light.svg');
-				--bg-image-subtle-1: var(--_placeholder-bg);
-				--bg-image-subtle-2: var(--_placeholder-bg);
-				--bg-image-footer: var(--_placeholder-bg);
-				--bg-svg-blend-mode: overlay;
-				--bg-blend-mode: darken;
-				--bg-image-aspect-ratio: 2.25;
-				--bg-scale: 1.68;
-				--bg-aspect-ratio: calc(var(--bg-image-aspect-ratio) / var(--bg-scale));
-				--bg-gradient-size: calc(var(--bg-scale) * 100%);
+				--gradient-1: var(--gray-900);
+				--gradient-2: var(--accent-dark);
+				--gradient-3: var(--gray-999);
+				--gradient-4: var(--accent-regular);
 			}
 
-			:root.theme-dark {
-				--bg-image-main: url('/assets/backgrounds/bg-main-dark-800w.jpg');
-				--bg-image-main-curves: url('/assets/backgrounds/bg-main-dark.svg');
-				--bg-svg-blend-mode: darken;
-				--bg-blend-mode: lighten;
+			.animated-background {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				z-index: -1;
+				overflow: hidden;
+				background: var(--gray-999);
 			}
 
-			/* These backgrounds are displayed below the fold, so we lazy load them
-			   once the `.loaded` class has been set.  */
-			:root.loaded {
-				--bg-image-subtle-1: url('/assets/backgrounds/bg-subtle-1-light-800w.jpg');
-				--bg-image-subtle-2: url('/assets/backgrounds/bg-subtle-2-light-800w.jpg');
-				--bg-image-footer: url('/assets/backgrounds/bg-footer-light-800w.jpg');
-			}
-			:root.loaded.theme-dark {
-				--bg-image-subtle-1: url('/assets/backgrounds/bg-subtle-1-dark-800w.jpg');
-				--bg-image-subtle-2: url('/assets/backgrounds/bg-subtle-2-dark-800w.jpg');
-				--bg-image-footer: url('/assets/backgrounds/bg-footer-dark-800w.jpg');
+			.gradient-bg {
+				position: absolute;
+				top: -100%;
+				left: -100%;
+				width: 300%;
+				height: 300%;
+				background: linear-gradient(
+					45deg,
+					var(--gradient-1),
+					var(--gradient-2),
+					var(--gradient-3),
+					var(--gradient-4)
+				);
+				animation: gradient 20s ease infinite;
+				opacity: 0.7;
+				background-size: 200% 200%;
 			}
 
-			@media (min-width: 50em) {
-				:root {
-					--bg-scale: 1;
-					--bg-image-main: url('/assets/backgrounds/bg-main-light-1440w.jpg');
+			.floating-icons {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+			}
+
+			.icon {
+				position: absolute;
+				font-size: 1.5rem;
+				opacity: 0;
+				animation: bubble 15s infinite;
+				filter: blur(0.5px);
+				color: var(--accent-light);
+				text-shadow: 0 0 10px var(--accent-regular);
+			}
+
+			.icon:nth-child(1) { left: 10%; animation-delay: 0s; }
+			.icon:nth-child(2) { left: 25%; animation-delay: 2s; }
+			.icon:nth-child(3) { left: 15%; animation-delay: 4s; }
+			.icon:nth-child(4) { left: 30%; animation-delay: 6s; }
+			.icon:nth-child(5) { left: 20%; animation-delay: 8s; }
+			.icon:nth-child(6) { left: 35%; animation-delay: 1s; }
+			.icon:nth-child(7) { left: 80%; animation-delay: 3s; }
+			.icon:nth-child(8) { left: 65%; animation-delay: 5s; }
+			.icon:nth-child(9) { left: 75%; animation-delay: 7s; }
+			.icon:nth-child(10) { left: 85%; animation-delay: 9s; }
+			.icon:nth-child(11) { left: 70%; animation-delay: 2.5s; }
+			.icon:nth-child(12) { left: 45%; animation-delay: 4.5s; }
+			.icon:nth-child(13) { left: 55%; animation-delay: 6.5s; }
+			.icon:nth-child(14) { left: 40%; animation-delay: 8.5s; }
+			.icon:nth-child(15) { left: 60%; animation-delay: 1.5s; }
+
+			.content {
+				position: relative;
+				z-index: 1;
+			}
+
+			@keyframes gradient {
+				0% {
+					transform: translate(0%, 0%) rotate(0deg);
+					background-position: 0% 50%;
 				}
-				:root.theme-dark {
-					--bg-image-main: url('/assets/backgrounds/bg-main-dark-1440w.jpg');
+				50% {
+					transform: translate(-10%, -10%) rotate(180deg);
+					background-position: 100% 50%;
 				}
-
-				:root.loaded {
-					--bg-image-subtle-1: url('/assets/backgrounds/bg-subtle-1-light-1440w.jpg');
-					--bg-image-subtle-2: url('/assets/backgrounds/bg-subtle-2-light-1440w.jpg');
-					--bg-image-footer: url('/assets/backgrounds/bg-footer-light-1440w.jpg');
-				}
-				:root.loaded.theme-dark {
-					--bg-image-subtle-1: url('/assets/backgrounds/bg-subtle-1-dark-1440w.jpg');
-					--bg-image-subtle-2: url('/assets/backgrounds/bg-subtle-2-dark-1440w.jpg');
-					--bg-image-footer: url('/assets/backgrounds/bg-footer-dark-1440w.jpg');
+				100% {
+					transform: translate(0%, 0%) rotate(360deg);
+					background-position: 0% 50%;
 				}
 			}
 
-			.backgrounds {
-				min-height: 100%;
-				isolation: isolate;
-				background:
-					/*noise*/
-					url('/assets/backgrounds/noise.png') top center/220px repeat,
-					/*footer*/ var(--bg-image-footer) bottom center/var(--bg-gradient-size) no-repeat,
-					/*header1*/ var(--bg-image-main-curves) top center/var(--bg-gradient-size) no-repeat,
-					/*header2*/ var(--bg-image-main) top center/var(--bg-gradient-size) no-repeat,
-					/*base*/ var(--gray-999);
-				background-blend-mode: /*noise*/
-					overlay,
-					/*footer*/ var(--bg-blend-mode),
-					/*header1*/ var(--bg-svg-blend-mode),
-					/*header2*/ normal,
-					/*base*/ normal;
+			@keyframes bubble {
+				0% {
+					transform: translateY(120vh) scale(0.8) translateX(0);
+					opacity: 0;
+				}
+				5% {
+					opacity: 0.15;
+				}
+				25% {
+					transform: translateY(80vh) scale(0.9) translateX(-10px);
+				}
+				50% {
+					transform: translateY(40vh) scale(1) translateX(10px);
+					opacity: 0.15;
+				}
+				75% {
+					transform: translateY(10vh) scale(1.1) translateX(-5px);
+					opacity: 0.1;
+				}
+				100% {
+					transform: translateY(-20vh) scale(1.2) translateX(0);
+					opacity: 0;
+				}
 			}
-			@media (forced-colors: active) {
-				/* Deactivate custom backgrounds for high contrast users. */
-				.backgrounds {
-					background: none;
-					background-blend-mode: none;
-					--bg-gradient-size: none;
+
+			@media (prefers-reduced-motion: reduce) {
+				.gradient-bg {
+						animation: none;
+				}
+				.icon {
+					display: none;
 				}
 			}
 		</style>

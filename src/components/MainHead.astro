@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { SEO } from 'astro-seo';
 
 interface Props {
 	title?: string | undefined;
@@ -7,41 +8,98 @@ interface Props {
 }
 
 const {
-	title = 'Jeanine White: Personal Site',
-	description = 'The personal site of Jeanine White',
+	title = 'Cedric Olivier 🔍 Profesional en SEO y Marketing Digital',
+	description = 'Especialista en SEO y Marketing Digital con experiencia en optimización técnica, estrategia de contenidos y análisis de datos. Descubre cómo puedo ayudarte a mejorar tu presencia online.',
 } = Astro.props;
+
+// URL canónica
+const canonicalURL = Astro.url.href;
 ---
 
 <meta charset="UTF-8" />
-<meta name="description" property="og:description" content={description} />
 <meta name="viewport" content="width=device-width" />
-<meta name="generator" content={Astro.generator} />
-<title>{title}</title>
 
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<SEO
+	title={title}
+	description={description}
+	canonical={canonicalURL}
+	openGraph={{
+		basic: {
+			title: title,
+			type: "website",
+			image: "/assets/cedric-portada.jpg",
+			url: canonicalURL,
+		},
+		optional: {
+			description: description,
+			locale: "es_MX",
+			siteName: "Cedric Olivier - SEO y Marketing Digital",
+		},
+		image: {
+			alt: "Cedric Olivier - Especialista en SEO y Marketing Digital",
+			width: 1200,
+			height: 630,
+			type: "image/jpeg",
+		},
+	}}
+	extend={{
+		meta: [
+			{ name: "author", content: "Cedric Olivier" },
+			{ name: "keywords", content: "SEO, Marketing Digital, Optimización web, Content Marketing, Analytics, Keyword Research, Core Web Vitals, Auditorías SEO, Schema Markup, Estrategia de contenidos" },
+			{ name: "robots", content: "index, follow" },
+			{ name: "theme-color", content: "#9747FF" },
+			{ name: "apple-mobile-web-app-capable", content: "yes" },
+			{ name: "apple-mobile-web-app-status-bar-style", content: "black-translucent" },
+		],
+		link: [
+			{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+			{ rel: "manifest", href: "/manifest.json" },
+			{ 
+				rel: "preload", 
+				href: "https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,700;1,400&family=Rubik:wght@500;600&display=swap",
+				as: "style"
+			}
+		],
+		// Schema.org para Person
+		jsonLd: {
+			"@context": "https://schema.org",
+			"@type": "Person",
+			"name": "Cedric Olivier",
+			"url": canonicalURL,
+			"image": "/assets/cedric-portada.jpg",
+			"sameAs": [
+				"https://www.linkedin.com/in/cedric-olivier/",
+				"https://github.com/soycedric"
+			],
+			"jobTitle": "Especialista en SEO y Marketing Digital",
+			"description": description,
+			"knowsAbout": [
+				"SEO",
+				"Marketing Digital",
+				"Content Marketing",
+				"Analytics",
+				"Keyword Research",
+				"Technical SEO"
+			],
+			"worksFor": {
+				"@type": "Organization",
+				"name": "Brand Industry"
+			}
+		}
+	}}
+/>
+
+<!-- Fuentes -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
 	href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,700;1,400&family=Rubik:wght@500;600&display=swap"
 	rel="stylesheet"
+	media="print"
+	onload="this.media='all'"
 />
-<script is:inline>
-	// This code is inlined in the head to make dark mode instant & blocking.
-	const getThemePreference = () => {
-		if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-			return localStorage.getItem('theme');
-		}
-		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-	};
-	const isDark = getThemePreference() === 'dark';
-	document.documentElement.classList[isDark ? 'add' : 'remove']('theme-dark');
 
-	if (typeof localStorage !== 'undefined') {
-		// Watch the document element and persist user preference when it changes.
-		const observer = new MutationObserver(() => {
-			const isDark = document.documentElement.classList.contains('theme-dark');
-			localStorage.setItem('theme', isDark ? 'dark' : 'light');
-		});
-		observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-	}
+<script is:inline>
+	// Establecer tema oscuro por defecto
+	document.documentElement.classList.add('theme-dark');
 </script>

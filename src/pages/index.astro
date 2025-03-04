@@ -26,80 +26,746 @@ const projects = (await getCollection('work'))
 ---
 
 <BaseLayout>
-	<div class="stack gap-20 lg:gap-48">
+	<div class="stack gap-20 lg:gap-40">
 		<div class="wrapper stack gap-8 lg:gap-20">
 			<header class="hero">
 				<Hero
-					title="Hello, my name is Jeanine White"
-					tagline="I am a Creative Developer who is currently based in Portland, Oregon."
+					title="Hola, me llamo Cedric Olivier"
+					tagline="Soy un profesional en SEO y Marketing Digital. "
 					align="start"
 				>
 					<div class="roles">
-						<Pill><Icon icon="code" size="1.33em" /> Developer</Pill>
-						<Pill><Icon icon="microphone-stage" size="1.33em" /> Speaker</Pill>
-						<Pill><Icon icon="pencil-line" size="1.33em" /> Writer</Pill>
+						<Pill><Icon icon="strategy" size="1.33em" /> SEO</Pill>
+						<Pill><Icon icon="code" size="1.33em" /> Desarrollo web</Pill>
+						<Pill><Icon icon="pencil-line" size="1.33em" /> Copywriting</Pill>
+					</div>
+					<div class="hero-cta">
+						<CallToAction href="https://www.linkedin.com/in/cedric-olivier/" class="hero-button">
+							¡Trabajemos juntos! 
+							<Icon icon="linkedin-logo" size="1.2em" />
+						</CallToAction>
 					</div>
 				</Hero>
 
 				<img
-					alt="Jeanine White smiling in a red plaid shirt and tortoise shell glasses"
+					alt="Cedric Olivier - Profesional SEO y Marketing Digital"
 					width="480"
-					height="620"
-					src="/assets/portrait.jpg"
+					height="480"
+					src="/assets/cedric-portada.jpg"
+					alt="Cedric Olivier"
+					class="hero-image"
+					loading="eager"
+					decoding="async"
+					fetchpriority="high"
 				/>
 			</header>
 
 			<Skills />
 		</div>
+		
 
-		<main class="wrapper stack gap-20 lg:gap-48">
-			<section class="section with-background with-cta">
+		<main class="wrapper stack gap-20 lg:gap-40">
+			<section class="section with-background bg-variant">
 				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Selected Work</h3>
-					<p>Take a look below at some of my featured work for clients from the past few years.</p>
+					<h3>Proyectos Web</h3>
+					<p>
+						Estos son algunos de los sitios web que he desarrollado, combinando diseño atractivo, creación de contenido y optimización SEO.
+					</p>
 				</header>
 
-				<div class="gallery">
-					<Grid variant="offset">
-						{
-							projects.map((project) => (
-								<li>
-									<PortfolioPreview project={project} />
-								</li>
-							))
-						}
-					</Grid>
-				</div>
-
-				<div class="cta">
-					<CallToAction href="/work/">
-						View All
-						<Icon icon="arrow-right" size="1.2em" />
-					</CallToAction>
+				<div class="portfolio-slider">
+					<div class="slider-container">
+						<div class="slider-track">
+							<div class="slide">
+								<div class="slide-content">
+									<img src="/assets/empatika-portfolio.jpg" alt="Empátika" loading="lazy" />
+									<div class="slide-info">
+										<h4>Empátika</h4>
+										<p>Desarrollo web para empresa dedicada a vender productos veganos.</p>
+										<a href="https://empatika.shop" target="_blank" class="slide-link">Ver proyecto <Icon icon="arrow-right" size="1.2em" /></a>
+									</div>
+								</div>
+							</div>
+							<div class="slide">
+								<div class="slide-content">
+									<img src="/assets/psg-portfolio.jpg" alt="Puebla sin Granjas" loading="lazy" />
+									<div class="slide-info">
+										<h4>Puebla sin Granjas</h4>
+										<p>Sitio web de activismo social para la protección de los animales.</p>
+										<a href="https://soycedric.github.io/pueblasingranjas/" target="_blank" class="slide-link">Ver proyecto <Icon icon="arrow-right" size="1.2em" /></a>
+									</div>
+								</div>
+							</div>
+							<div class="slide">
+								<div class="slide-content">
+									<img src="/assets/nr-portfolio.jpg" alt="Nuestros Remedios" loading="lazy" />
+									<div class="slide-info">
+										<h4>Nuestros Remedios</h4>
+										<p>Blog de salud natural y remedios naturales.</p>
+										<a href="https://web.archive.org/web/20250116210516/https://nuestrosremedios.com/" target="_blank" class="slide-link">Ver proyecto <Icon icon="arrow-right" size="1.2em" /></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="slider-controls">
+						<button class="slider-prev" aria-label="Anterior proyecto">
+							<Icon icon="arrow-left" size="1.5em" />
+						</button>
+						<div class="slider-dots"></div>
+						<button class="slider-next" aria-label="Siguiente proyecto">
+							<Icon icon="arrow-right" size="1.5em" />
+						</button>
+					</div>
 				</div>
 			</section>
 
-			<section class="section with-background bg-variant">
+			<section class="section with-background bg-variant ">
 				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Mentions</h3>
+					<h3>Experiencia</h3>
 					<p>
-						I have been fortunate enough to receive praise for my work in several publications. Take
-						a look below to learn more.
+						Mi trayectoria en SEO y Marketing Digital demuestra mi compromiso con el éxito de cada proyecto.
 					</p>
 				</header>
 
 				<div class="gallery">
-					<Grid variant="small">
-						{
-							['Medium', 'BuzzFeed', 'The Next Web', 'awwwards.', 'TechCrunch'].map((brand) => (
-								<li class="mention-card">
-									<p>{brand}</p>
-								</li>
-							))
-						}
-					</Grid>
+					<div class="timeline">
+						<div class="timeline-item">
+							<div class="timeline-content">
+								<time class="timeline-date">2023 - Presente</time>
+								<h4 class="timeline-title">Analista SEO</h4>
+								<h5 class="timeline-date">Brand industry</h5>
+								<p class="timeline-description">
+									Agencia de Marketing Digital. Creación, implementacion, medición y optimización de estrategias de SEO y contenido.
+								</p>
+							</div>
+						</div>
+						<div class="timeline-item">
+							<div class="timeline-content">
+								<time class="timeline-date">2021 - 2023</time>
+								<h4 class="timeline-title">Agente de Contenido y SEO</h4>
+								<h5 class="timeline-date">ComunidadFeliz</h5>
+								<p class="timeline-description">
+									Startup enfocada al sector inmobiliario, desarrollando estrategias de contenido y SEO para aumentar la visibilidad y el tráfico orgánico.
+								</p>
+							</div>
+						</div>
+						<div class="timeline-item">
+							<div class="timeline-content">
+								<time class="timeline-date">2021 - 2022</time>
+								<h4 class="timeline-title">Copywriter</h4>
+								<h5 class="timeline-date">JS Marketing</h5>
+								<p class="timeline-description">
+										Agencia de Marketing Digital, enfocada en el desarrollo de contenido para e-commerce.
+								</p>
+							</div>
+						</div>
+						<div class="timeline-item">
+							<div class="timeline-content">
+								<time class="timeline-date">2020 - 2021</time>
+								<h4 class="timeline-title">Copywriter</h4>
+								<h5 class="timeline-date">Sum Noticias</h5>
+								<p class="timeline-description">
+									Redacción de noticias y artículos enfocados en la salud, medio ambiente y cocina.
+								</p>
+							</div>
+						</div>
+						<div class="timeline-item">
+							<div class="timeline-content">
+								<time class="timeline-date">2017 - 2021</time>
+								<h4 class="timeline-title">Licenciatura en Mercadotecnia y Medios Digitales</h4>
+								<h5 class="timeline-date">Benemérita Universidad Autónoma de Puebla</h5>
+								<p class="timeline-description">
+									Carrera enfocada en el desarrollo de habilidades en marketing digital, SEO, redes sociales y análisis de datos.
+								</p>
+							</div>
+						</div>
+					</div>
 				</div>
 			</section>
+
+			<section class="section with-background skills-section">
+				<header class="section-header stack gap-2 lg:gap-4">
+					<h3>Habilidades SEO</h3>
+					<p>Descubre mis habilidades principales rascando cada tarjeta</p>
+				</header>
+
+				<div class="skills-grid">
+					<div class="scratch-card" data-threshold="50">
+						<canvas class="scratch-canvas"></canvas>
+						<div class="scratch-card-content">
+							<h4>SEO Técnico</h4>
+							<ul>
+								<li>Optimización de Core Web Vitals</li>
+								<li>Auditorías técnicas avanzadas</li>
+								<li>Implementación de Schema Markup</li>
+								<li>Análisis de logs y rastreo</li>
+							</ul>
+						</div>
+						<div class="question-mark">❓</div>
+					</div>
+
+					<div class="scratch-card" data-threshold="50">
+						<canvas class="scratch-canvas"></canvas>
+						<div class="scratch-card-content">
+							<h4>Keyword Research</h4>
+							<ul>
+								<li>Análisis de intención de búsqueda</li>
+								<li>Investigación de competencia</li>
+								<li>Identificación de nichos</li>
+								<li>Planificación de contenidos</li>
+							</ul>
+						</div>
+						<div class="question-mark">❓</div>
+					</div>
+
+					<div class="scratch-card" data-threshold="50">
+						<canvas class="scratch-canvas"></canvas>
+						<div class="scratch-card-content">
+							<h4>Content SEO</h4>
+							<ul>
+								<li>Optimización de contenido</li>
+								<li>Estrategia de linkbuilding</li>
+								<li>Creación de clusters</li>
+								<li>Optimización de CTR</li>
+							</ul>
+						</div>
+						<div class="question-mark">❓</div>
+					</div>
+
+					<div class="scratch-card" data-threshold="50">
+						<canvas class="scratch-canvas"></canvas>
+						<div class="scratch-card-content">
+							<h4>Analytics & Data</h4>
+							<ul>
+								<li>Google Analytics 4</li>
+								<li>Search Console</li>
+								<li>Data Studio / Looker</li>
+								<li>SEO A/B Testing</li>
+							</ul>
+						</div>
+						<div class="question-mark">❓</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="section with-background tech-section">
+				<header class="section-header stack gap-2 lg:gap-4">
+					<h3>Tecnologías</h3>
+					<p>Herramientas y plataformas que domino para desarrollar soluciones digitales efectivas</p>
+				</header>
+
+				<div class="tech-container">
+					<div class="tech-category">
+						<h4>Desarrollo Web</h4>
+						<div class="tech-grid">
+							<div class="tech-item">
+								<img src="/assets/tech/javascript.svg" alt="JavaScript" loading="lazy">
+								<span>JavaScript</span>
+							</div>
+							<div class="tech-item">
+								<img src="/assets/tech/nodejs-icon.svg" alt="Node.js" loading="lazy">
+								<span>Node.js</span>
+							</div>
+							<div class="tech-item">
+								<img src="/assets/tech/html-5.svg" alt="HTML5" loading="lazy">
+								<span>HTML5</span>
+							</div>
+							<div class="tech-item">
+								<img src="/assets/tech/css-3.svg" alt="CSS3" loading="lazy">
+								<span>CSS3</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="tech-category">
+						<h4>CMS y E-commerce</h4>
+						<div class="tech-grid">
+							<div class="tech-item">
+								<img src="/assets/tech/wordpress-icon.svg" alt="WordPress" loading="lazy">
+								<span>WordPress</span>
+							</div>
+							<div class="tech-item">
+								<img src="/assets/tech/prestashop-icon.svg" alt="PrestaShop" loading="lazy">
+								<span>PrestaShop</span>
+							</div>
+							<div class="tech-item">
+								<img src="/assets/tech/shopify.svg" alt="Shopify" loading="lazy">
+								<span>Shopify</span>
+							</div>
+							<div class="tech-item">
+								<img src="/assets/tech/ghost.svg" alt="Ghost" loading="lazy">
+								<span>Ghost</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="tech-category">
+						<h4>Herramientas SEO</h4>
+						<div class="tech-grid">
+							<div class="tech-item">
+								<img src="/assets/tech/screaming-frog-logo.svg" alt="Screaming Frog" loading="lazy">
+								<span>Screaming Frog</span>
+							</div>
+							<div class="tech-item">
+								<img src="/assets/tech/google-search-console.svg" alt="Google Search Console" loading="lazy">
+								<span>Search Console</span>
+							</div>
+							<div class="tech-item">
+								<img src="/assets/tech/google-analytics.svg" alt="Google Analytics" loading="lazy">
+								<span>Google Analytics</span>
+							</div>
+							<div class="tech-item">
+								<img src="/assets/tech/semrush-logo.svg" alt="SEMrush" loading="lazy">
+								<span>SEMrush</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="tech-category">
+						<h4>DevOps y Marketing</h4>
+						<div class="tech-grid">
+							<div class="tech-item">
+								<img src="/assets/tech/docker-icon.svg" alt="Docker" loading="lazy">
+								<span>Docker</span>
+							</div>
+							<div class="tech-item">
+								<img src="/assets/tech/bash-icon.svg" alt="Bash" loading="lazy">
+								<span>Bash</span>
+							</div>
+							<div class="tech-item">
+								<img src="/assets/tech/hubspot.svg" alt="HubSpot" loading="lazy">
+								<span>HubSpot</span>
+							</div>
+							<div class="tech-item">
+								<img src="/assets/tech/git-icon.svg" alt="Git" loading="lazy">
+								<span>Git</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<style>
+				.skills-grid {
+					display: contents;
+					grid-template-columns: repeat(4, 1fr);
+					gap: 1.5rem;
+					max-width: 1200px;
+					margin: 0 auto;
+					padding: 2rem;
+					cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='10' fill='%239747FF' stroke='%23ffffff' stroke-width='2'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='white' font-size='16px' font-family='Arial'%3E%24%3C/text%3E%3C/svg%3E"), auto;
+				}
+
+				.scratch-card {
+					position: relative;
+					aspect-ratio: 3/4;
+					background: var(--gradient-subtle);
+					border-radius: 1rem;
+					overflow: hidden;
+					width: 100%;
+					max-width: 350px;
+					margin: 0 auto;
+				}
+
+				.question-mark {
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+					font-size: 3rem;
+					color: var(--gray-0);
+					text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+					z-index: 3;
+					pointer-events: none;
+					transition: opacity 0.5s ease;
+				}
+
+				.scratch-card.revealed .question-mark {
+					opacity: 0;
+				}
+
+				.scratch-canvas {
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					z-index: 2;
+					touch-action: none;
+				}
+
+				.scratch-card-content {
+					height: 100%;
+					padding: 1.5rem;
+					background: var(--gray-999);
+					border: 1px solid var(--gray-800);
+					border-radius: 1rem;
+					z-index: 1;
+				}
+
+				.scratch-card-content h4 {
+					color: var(--accent-regular);
+					font-size: var(--text-lg);
+					margin-bottom: 1rem;
+				}
+
+				.scratch-card-content ul {
+					list-style: none;
+					padding: 0;
+					color: var(--gray-300);
+				}
+
+				.scratch-card-content li {
+					margin-bottom: 0.5rem;
+					padding-left: 1.5rem;
+					position: relative;
+					font-size: var(--text-sm);
+					line-height: 1.3;
+				}
+
+				.scratch-card-content li::before {
+					content: '→';
+					position: absolute;
+					left: 0;
+					color: var(--accent-regular);
+				}
+
+				@media (min-width: 1200px) {
+					.skills-grid {
+						grid-template-columns: repeat(4, 1fr);
+						max-width: 1200px;
+						width: 100%;
+					}
+					
+					.scratch-card-content li {
+						font-size: var(--text-md);
+						line-height: 1.5;
+					}
+					
+					.scratch-card {
+						max-width: none;
+						aspect-ratio: 3/4;
+					}
+				}
+
+				@media (min-width: 700px) and (max-width: 1199px) {
+					.scratch-card {
+						aspect-ratio: 2/1;
+						max-width: none;
+						width: 70%;
+						margin: 0 auto;
+					}
+				}
+
+				@media (min-width: 500px) and (max-width: 699px) {
+					.scratch-card {
+						aspect-ratio: 2/1;
+						max-width: none;
+						width: 100%;
+					}
+				}
+
+				@media (max-width: 1199px) {
+					.skills-grid {
+						grid-template-columns: 1fr;
+						max-width: 350px;
+						width: 100%;
+					}
+				}
+
+				@media (max-width: 499px) {
+					.scratch-card {
+						aspect-ratio: 3/4;
+					}
+				}
+			</style>
+
+			<script>
+				class ScratchCard {
+					constructor(el) {
+						this.el = el;
+						this.canvas = el.querySelector('.scratch-canvas');
+						this.ctx = this.canvas.getContext('2d');
+						this.threshold = parseInt(el.dataset.threshold) || 50;
+						this.isScratching = false;
+						this.lastPoint = null;
+						this.init();
+					}
+
+					init() {
+						this.setupCanvas();
+						this.fillCanvas();
+						this.setupEvents();
+					}
+
+					
+					setupCanvas() {
+						const rect = this.el.getBoundingClientRect();
+						this.canvas.width = rect.width * 2; // Para mejor resolución en pantallas retina
+						this.canvas.height = rect.height * 2;
+						this.canvas.style.width = rect.width + 'px';
+						this.canvas.style.height = rect.height + 'px';
+						this.ctx.scale(2, 2);
+						this.totalPixels = rect.width * rect.height;
+					}
+
+					fillCanvas() {
+						const gradient = this.ctx.createLinearGradient(0, 0, this.canvas.width, this.canvas.height);
+						gradient.addColorStop(0, '#7C6BC6');
+						gradient.addColorStop(1, '#9747FF');
+						this.ctx.fillStyle = gradient;
+						this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+					}
+
+					scratch(x, y) {
+						this.ctx.globalCompositeOperation = 'destination-out';
+						this.ctx.lineWidth = 40;
+						this.ctx.lineCap = 'round';
+						
+						if (this.lastPoint) {
+							this.ctx.beginPath();
+							this.ctx.moveTo(this.lastPoint.x, this.lastPoint.y);
+							this.ctx.lineTo(x, y);
+							this.ctx.stroke();
+						}
+
+						this.lastPoint = { x, y };
+
+						// Verificar si se está rascando cerca del signo de interrogación
+						const rect = this.canvas.getBoundingClientRect();
+						const centerX = rect.width / 2;
+						const centerY = rect.height / 2;
+						const distance = Math.sqrt(Math.pow(x - centerX, 2) + Math.pow(y - centerY, 2));
+
+						if (distance < 50) { // Si está rascando cerca del centro
+							const questionMark = this.el.querySelector('.question-mark');
+							if (questionMark) {
+								questionMark.style.opacity = '0';
+							}
+						}
+
+						// Calcular área rascada
+						const imageData = this.ctx.getImageData(0, 0, this.canvas.width/2, this.canvas.height/2);
+						const pixels = imageData.data;
+						let transparentPixels = 0;
+
+						for (let i = 0; i < pixels.length; i += 4) {
+							if (pixels[i + 3] < 128) { // Umbral de transparencia
+								transparentPixels++;
+							}
+						}
+
+						const scratchedPercentage = (transparentPixels / this.totalPixels) * 100;
+
+						if (scratchedPercentage > this.threshold) {
+							// Animación de desvanecimiento
+							this.canvas.style.transition = 'opacity 0.5s ease';
+							this.canvas.style.opacity = '0';
+							this.el.classList.add('revealed');
+							setTimeout(() => {
+								this.canvas.style.display = 'none';
+							}, 500);
+						}
+					}
+
+					setupEvents() {
+						const getPosition = (event) => {
+							const rect = this.canvas.getBoundingClientRect();
+							const scaleX = this.canvas.width / (rect.width * 2);
+							const scaleY = this.canvas.height / (rect.height * 2);
+							return {
+								x: ((event.type.includes('touch') ? event.touches[0].clientX : event.clientX) - rect.left) * scaleX,
+								y: ((event.type.includes('touch') ? event.touches[0].clientY : event.clientY) - rect.top) * scaleY
+							};
+						};
+
+						const startScratching = (e) => {
+							this.isScratching = true;
+							this.lastPoint = null;
+							const { x, y } = getPosition(e);
+							this.scratch(x, y);
+						};
+
+						const moveScratching = (e) => {
+							if (!this.isScratching) return;
+							const { x, y } = getPosition(e);
+							this.scratch(x, y);
+						};
+
+						const stopScratching = () => {
+							this.isScratching = false;
+							this.lastPoint = null;
+						};
+
+						// Mouse events
+						this.canvas.addEventListener('mousedown', startScratching);
+						this.canvas.addEventListener('mousemove', moveScratching);
+						this.canvas.addEventListener('mouseup', stopScratching);
+						this.canvas.addEventListener('mouseleave', stopScratching);
+
+						// Touch events
+						this.canvas.addEventListener('touchstart', (e) => {
+							e.preventDefault();
+							startScratching(e);
+						});
+						this.canvas.addEventListener('touchmove', (e) => {
+							e.preventDefault();
+							moveScratching(e);
+						});
+						this.canvas.addEventListener('touchend', stopScratching);
+					}
+				}
+
+				// Inicializar todas las tarjetas
+				document.querySelectorAll('.scratch-card').forEach(card => {
+					new ScratchCard(card);
+				});
+			</script>
+
+			<script>
+				// Script para el slider de proyectos
+				document.addEventListener('DOMContentLoaded', () => {
+					const sliderTrack = document.querySelector('.slider-track');
+					const slides = document.querySelectorAll('.slide');
+					const prevButton = document.querySelector('.slider-prev');
+					const nextButton = document.querySelector('.slider-next');
+					const dotsContainer = document.querySelector('.slider-dots');
+					
+					let currentIndex = 0;
+					const slideCount = slides.length;
+					
+					// Crear los puntos indicadores
+					slides.forEach((_, index) => {
+						const dot = document.createElement('button');
+						dot.classList.add('slider-dot');
+						if (index === 0) dot.classList.add('active');
+						dot.setAttribute('aria-label', `Ir al proyecto ${index + 1}`);
+						dot.addEventListener('click', () => goToSlide(index));
+						dotsContainer.appendChild(dot);
+					});
+					
+					const dots = document.querySelectorAll('.slider-dot');
+					
+					// Función para ir a una diapositiva específica
+					function goToSlide(index) {
+						if (index < 0) index = slideCount - 1;
+						if (index >= slideCount) index = 0;
+						
+						currentIndex = index;
+						const offset = -index * 100;
+						sliderTrack.style.transform = `translateX(${offset}%)`;
+						
+						// Actualizar los puntos indicadores
+						dots.forEach((dot, i) => {
+							dot.classList.toggle('active', i === currentIndex);
+						});
+					}
+					
+					// Eventos de los botones
+					prevButton.addEventListener('click', () => goToSlide(currentIndex - 1));
+					nextButton.addEventListener('click', () => goToSlide(currentIndex + 1));
+				});
+			</script>
+
+			<style>
+				.tech-container {
+					display: flex;
+					flex-direction: column;
+					gap: 3rem;
+					width: 100%;
+					max-width: 1200px;
+					margin: 0 auto;
+				}
+
+				.tech-category {
+					display: flex;
+					flex-direction: column;
+					gap: 1.5rem;
+				}
+
+				.tech-category h4 {
+					font-size: var(--text-xl);
+					color: var(--accent-regular);
+					text-align: center;
+					position: relative;
+					padding-bottom: 0.5rem;
+				}
+
+				.tech-category h4::after {
+					content: '';
+					position: absolute;
+					bottom: 0;
+					left: 50%;
+					transform: translateX(-50%);
+					width: 60px;
+					height: 3px;
+					background: var(--gradient-stroke);
+					border-radius: 3px;
+				}
+
+				.tech-grid {
+					display: grid;
+					grid-template-columns: repeat(2, 1fr);
+					gap: 1.5rem;
+				}
+
+				.tech-item {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					gap: 0.75rem;
+					padding: 1.5rem;
+					border-radius: 1rem;
+					background: var(--gray-999);
+					border: 1px solid var(--gray-800);
+					transition: transform 0.3s ease, box-shadow 0.3s ease;
+				}
+
+				.tech-item:hover {
+					transform: translateY(-5px);
+					box-shadow: var(--shadow-md);
+				}
+
+				.tech-item img {
+					width: 60px;
+					height: 60px;
+					object-fit: contain;
+				}
+
+				.tech-item span {
+					font-size: var(--text-md);
+					font-weight: 500;
+					color: var(--gray-200);
+				}
+
+				@media (min-width: 768px) {
+					.tech-grid {
+						grid-template-columns: repeat(4, 1fr);
+					}
+					
+					.tech-item img {
+						width: 70px;
+						height: 70px;
+					}
+				}
+
+				@media (min-width: 1200px) {
+					.tech-item {
+						padding: 2rem;
+					}
+					
+					.tech-item img {
+						width: 80px;
+						height: 80px;
+					}
+					
+					.tech-item span {
+						font-size: var(--text-lg);
+					}
+				}
+			</style>
+
 		</main>
 
 		<ContactCTA />
@@ -118,12 +784,22 @@ const projects = (await getCollection('work'))
 		display: none;
 	}
 
-	.hero img {
-		aspect-ratio: 5 / 4;
+	.hero-image {
+		aspect-ratio: 1/1;
+		width: min(300px, 100%);
+		height: auto;
 		object-fit: cover;
-		object-position: top;
-		border-radius: 1.5rem;
+		object-position: center;
+		border-radius: 50%;
 		box-shadow: var(--shadow-md);
+		border: 2px solid var(--accent-regular);
+		margin: 0 auto;
+	}
+
+	@media (min-width: 30em) {
+		.hero-image {
+			width: 350px;
+		}
 	}
 
 	@media (min-width: 50em) {
@@ -140,11 +816,35 @@ const projects = (await getCollection('work'))
 			gap: 0.5rem;
 		}
 
-		.hero img {
-			aspect-ratio: 3 / 4;
-			border-radius: 4.5rem;
-			object-fit: cover;
+		.hero-image {
+			width: 400px;
 		}
+	}
+
+	@media (min-width: 60em) {
+		.hero-image {
+			width: 480px;
+		}
+	}
+
+	.hero-cta {
+		margin-top: 1.5rem;
+	}
+
+	:global(.hero-button) {
+		padding: 0.75rem 1.5rem;
+		font-size: var(--text-sm);
+		transform: scale(0.98);
+		transition: all 0.3s ease;
+	}
+
+	:global(.hero-button:hover) {
+		transform: scale(1.05);
+		box-shadow: 0 0 20px var(--accent-regular);
+	}
+
+	:global(.hero-button:active) {
+		transform: scale(0.95);
 	}
 
 	/* ====================================================== */
@@ -194,7 +894,7 @@ const projects = (await getCollection('work'))
 		font-size: var(--text-2xl);
 	}
 
-	@media (min-width: 50em) {
+	@media (min-width: 1200px) {
 		.section {
 			grid-template-columns: repeat(4, 1fr);
 			grid-template-areas: 'header header header header' 'gallery gallery gallery gallery';
@@ -247,6 +947,360 @@ const projects = (await getCollection('work'))
 		.mention-card {
 			border-radius: 1.5rem;
 			height: 9.5rem;
+		}
+	}
+	.tech-section {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+   }
+
+	/* Timeline styles */
+	.timeline {
+		position: relative;
+		max-width: 800px;
+		margin: 0 auto;
+		padding: 2rem;
+	}
+
+	.timeline::before {
+		content: '';
+		position: absolute;
+		width: 2px;
+		background: var(--accent-regular);
+		top: 0;
+		bottom: 0;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	.timeline-item {
+		padding: 1rem 2rem;
+		position: relative;
+		width: 50%;
+		margin-left: 50%;
+	}
+
+	.timeline-item:nth-child(even) {
+		margin-left: 0;
+	}
+
+	.timeline-content {
+		padding: 1.5rem;
+		background: var(--gray-999);
+		border-radius: 1rem;
+		box-shadow: var(--shadow-sm);
+		border: 1px solid var(--gray-800);
+	}
+
+	.timeline-content::before {
+		content: '';
+		position: absolute;
+		width: 20px;
+		height: 20px;
+		background: var(--accent-regular);
+		border-radius: 50%;
+		left: -10px;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	.timeline-item:nth-child(even) .timeline-content::before {
+		left: auto;
+		right: -10px;
+	}
+
+	.timeline-date {
+		display: block;
+		font-size: var(--text-sm);
+		color: var(--accent-regular);
+		margin-bottom: 0.5rem;
+	}
+
+	.timeline-title {
+		font-size: var(--text-lg);
+		color: var(--gray-0);
+		margin-bottom: 0.5rem;
+	}
+
+	.timeline-description {
+		color: var(--gray-300);
+		font-size: var(--text-md);
+	}
+
+	@media (max-width: 50em) {
+		.timeline::before {
+			left: 0;
+		}
+		
+		.timeline-item {
+			width: 100%;
+			margin-left: 0;
+			padding: 1rem 0 1rem 2rem;
+		}
+		
+		.timeline-content::before {
+			left: -10px;
+		}
+		
+		.timeline-item:nth-child(even) .timeline-content::before {
+			left: -10px;
+			right: auto;
+		}
+	}
+
+	/* Estilos para la sección que contiene el slider */
+	.section.with-background.bg-variant {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	/* Estilos para el slider de portafolio */
+	.portfolio-slider {
+		width: 100%;
+		max-width: 350px;
+		margin: 0 auto;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.slider-container {
+		width: 100%;
+		overflow: hidden;
+		border-radius: 1rem;
+		display: flex;
+		justify-content: center;
+	}
+
+	.slider-track {
+		display: flex;
+		transition: transform 0.5s ease;
+		width: 100%;
+	}
+
+	.slide {
+		min-width: 100%;
+		flex: 1 0 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.slide-content {
+		position: relative;
+		width: 100%;
+		aspect-ratio: 3/4;
+		overflow: hidden;
+		border-radius: 1rem;
+		box-shadow: var(--shadow-sm);
+		border: 1px solid var(--gray-800);
+		background: var(--gradient-subtle);
+	}
+
+	.slide-content img {
+		width: 100%;
+		height: 60%;
+		object-fit: cover;
+		object-position: center;
+		transition: transform 0.5s ease;
+	}
+
+	.slide-content:hover img {
+		transform: scale(1.05);
+	}
+
+	.slide-info {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 40%;
+		padding: 1.5rem;
+		background: var(--gray-999);
+		color: var(--gray-200);
+		border-top: 1px solid var(--gray-800);
+	}
+
+	.slide-info h4 {
+		font-size: var(--text-lg);
+		margin-bottom: 0.5rem;
+		color: var(--accent-regular);
+	}
+
+	.slide-info p {
+		margin-bottom: 1rem;
+		font-size: var(--text-sm);
+		line-height: 1.4;
+		color: var(--gray-300);
+	}
+
+	.slide-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		color: var(--accent-regular);
+		font-weight: bold;
+		text-decoration: none;
+		transition: color 0.3s ease;
+		position: absolute;
+		bottom: 1.5rem;
+		left: 1.5rem;
+	}
+
+	.slide-link:hover {
+		color: var(--accent-dark);
+	}
+
+	.slider-controls {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 1rem;
+		margin-top: 1.5rem;
+	}
+
+	.slider-prev,
+	.slider-next {
+		background: var(--gray-999);
+		color: var(--accent-regular);
+		border: 1px solid var(--accent-regular);
+		border-radius: 50%;
+		width: 3rem;
+		height: 3rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		transition: all 0.3s ease;
+	}
+
+	.slider-prev:hover,
+	.slider-next:hover {
+		background: var(--accent-regular);
+		color: var(--gray-999);
+	}
+
+	.slider-dots {
+		display: flex;
+		gap: 0.5rem;
+	}
+
+	.slider-dot {
+		width: 0.75rem;
+		height: 0.75rem;
+		border-radius: 50%;
+		background: var(--gray-500);
+		border: none;
+		cursor: pointer;
+		transition: background 0.3s ease;
+	}
+
+	.slider-dot.active {
+		background: var(--accent-regular);
+		transform: scale(1.2);
+	}
+
+	.mobile-only {
+		display: none;
+	}
+
+	/* Estilos para tablet (slider un poco más ancho) */
+	@media (min-width: 768px) and (max-width: 1199px) {
+		.portfolio-slider {
+			max-width: 650px;
+		}
+		
+		.section-header {
+			text-align: center;
+			width: 100%;
+			max-width: 650px;
+			margin: 0 auto;
+		}
+		
+		.slide {
+			display: flex;
+			justify-content: center;
+		}
+		
+		.slide-content {
+			width: 650px;
+			max-width: 100%;
+			aspect-ratio: 4/3;
+			box-shadow: var(--shadow-md);
+		}
+		
+		.slide-content:hover {
+			transform: translateY(-5px);
+			box-shadow: var(--shadow-lg);
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+		}
+		
+		.slide-info {
+			padding: 1.75rem;
+		}
+		
+		.slide-info h4 {
+			font-size: var(--text-lg);
+		}
+		
+		.slide-info p {
+			font-size: var(--text-md);
+			margin-bottom: 1.25rem;
+			max-width: 90%;
+		}
+		
+		.slide-link {
+			bottom: 1.75rem;
+			left: 1.75rem;
+		}
+	}
+
+	/* Estilos para escritorio grande (slider más ancho) */
+	@media (min-width: 1200px) {
+		.portfolio-slider {
+			max-width: 800px;
+		}
+		
+		.section-header {
+			text-align: center;
+			width: 100%;
+			max-width: 800px;
+			margin: 0 auto;
+		}
+		
+		.slide {
+			display: flex;
+			justify-content: center;
+		}
+		
+		.slide-content {
+			width: 800px;
+			max-width: 100%;
+			aspect-ratio: 16/9;
+		}
+		
+		.slide-info {
+			padding: 2rem;
+		}
+		
+		.slide-info h4 {
+			font-size: var(--text-xl);
+		}
+		
+		.slide-info p {
+			font-size: var(--text-md);
+			margin-bottom: 1.5rem;
+			max-width: 80%;
+		}
+		
+		.slide-link {
+			bottom: 2rem;
+			left: 2rem;
+			font-size: var(--text-md);
 		}
 	}
 </style>
