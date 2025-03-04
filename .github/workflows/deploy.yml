@@ -6,8 +6,7 @@ on:
     paths:
       - '*'           # Solo archivos en la raíz
       - '.github/workflows/deploy.yml'  # Incluir el propio workflow
-    paths-ignore:
-      - '*/***'       # Ignorar cualquier subcarpeta y su contenido
+      - '!*/**'       # Excluir cualquier subcarpeta y su contenido
   
   # Mantener la opción de ejecución manual
   workflow_dispatch:
