@@ -1,5 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import sitemap from 'astro-sitemap';
+import robotsTxt from 'astro-robots-txt';
 
 // https://astro.build/config
 export default defineConfig({
@@ -8,4 +10,16 @@ export default defineConfig({
   build: {
     assets: '_assets'
   },
+  integrations: [
+    sitemap(),
+    robotsTxt({
+      policy: [
+        {
+          userAgent: '*',
+          allow: '/',
+        },
+      ],
+      sitemap: true,
+    }),
+  ],
 });

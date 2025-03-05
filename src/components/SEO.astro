@@ -1,0 +1,57 @@
+---
+import { SEO } from 'astro-seo';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  noindex?: boolean;
+  nofollow?: boolean;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
+}
+
+const {
+  title = 'Cedric - Desarrollador Web',
+  description = 'Portfolio profesional de Cedric Olivier, desarrollador web especializado en crear experiencias digitales atractivas y funcionales.',
+  canonical = Astro.url.href,
+  noindex = false,
+  nofollow = false,
+  ogTitle = title,
+  ogDescription = description,
+  ogImage = '/og-image.jpg',
+} = Astro.props;
+---
+
+<SEO
+  title={title}
+  description={description}
+  canonical={canonical}
+  noindex={noindex}
+  nofollow={nofollow}
+  openGraph={{
+    basic: {
+      title: ogTitle,
+      type: 'website',
+      image: ogImage,
+      url: canonical,
+    },
+    optional: {
+      description: ogDescription,
+      locale: 'es_MX',
+      siteName: 'Cedric Olivier- Desarrollador Web',
+    },
+  }}
+  extend={{
+    link: [
+      { rel: 'icon', href: '/favicon.ico' },
+      { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
+    ],
+    meta: [
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'generator', content: Astro.generator },
+      { name: 'theme-color', content: '#4a5568' },
+    ],
+  }}
+/> 

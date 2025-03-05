@@ -1,0 +1,19 @@
+---
+import { Person, WithContext } from 'schema-dts';
+
+const personSchema: WithContext<Person> = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Cedric Olivier',
+  url: 'https://soycedric.github.io/',
+  jobTitle: 'Desarrollador Web',
+  sameAs: [
+    'https://github.com/soycedric',
+    'https://linkedin.com/in/soycedric'
+  ],
+  image: 'https://soycedric.github.io/profile-image.jpg',
+  description: 'Desarrollador web especializado en crear experiencias digitales atractivas y funcionales.'
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(personSchema)} /> 

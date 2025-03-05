@@ -10,6 +10,9 @@
   },
   "dependencies": {
     "astro": "^5.1.1",
-    "astro-seo": "^0.8.4"
+    "astro-robots-txt": "^1.0.0",
+    "astro-seo": "^0.8.4",
+    "astro-sitemap": "^1.0.0",
+    "schema-dts": "^1.1.5"
   }
 }
